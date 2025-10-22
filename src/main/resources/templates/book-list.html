@@ -1,0 +1,51 @@
+<!-- Zeigt alle Bücher, die vom BookService kommen, und verlinkt auf die Detailseiten. -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>📖 Bücherliste</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        
+        <style>        
+            table { width: 80%; border-collapse: collapse; margin: 20px auto; font-family: Bookman Old Style; }
+            th, td { border: 1px solid #aaa; padding: 10px; text-align: left; }
+            th { background-color: #ccffff; font-size: 18px; color: black; text-align: center; }
+            h1 { text-align: center; }                    
+            .details-btn { padding: 6px 12px; text-decoration: none; border-radius: 5px; transition: 0.2s; }
+            .details-btn:hover { background-color: #66ccff; color: white; }
+        </style>
+    </head>
+
+    <body>
+        <h1>📜 Unsere Bücher</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Autor</th>
+                    <th>Jahr</th>
+                    <th>Genre</th>
+                    <th>ISBN</th>
+                    <th>Kommentar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.year}"></td>
+                    <td th:text="${book.genre}"></td>
+                    <td th:text="${book.isbn}"></td>
+                    <td>
+                        <a th:href="@{'/books/' + ${book.id}}" class="details-btn">Details</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+<!-- Zeigt Fehlerseite -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Fehler</title>
+        
+        <style>
+            body { font-family: Bookman Old Style; text-align: center; margin-top: 100px; }
+            h1 { color: #cc0000; }
+            a { display: inline-block; margin-top: 20px; color: #0033ff; text-decoration: none; }
+        </style>
+    </head>
+
+    <body>
+        <h1>Oops! Etwas ist schiefgelaufen 😅</h1>
+        <p th:text="${message}">Die angeforderte Seite konnte nicht gefunden werden.</p>
+        <a href="/books">Zurück zur Bücherliste</a>
+    </body>
+
+</html>
