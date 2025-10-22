@@ -53,12 +53,11 @@ bookreviews/
 mvn spring-boot:run
 ```
 
-oder in NetBeans:
+### oder in NetBeans:
 > Rechtsklick → Run Project
 
 ### Zugriff:
-Öffne im Browser:  
-👉 [http://localhost:8080](http://localhost:8080)
+Öffne im Browser:  👉 [http://localhost:8080](http://localhost:8080)
 
 ---
 
@@ -66,15 +65,15 @@ oder in NetBeans:
 
 | Funktion | Beschreibung |
 |-----------|---------------|
-| 📚 **Bücher anzeigen** | Liste aller Bücher mit Faker-generierten Daten |
-| 🔍 **Details anzeigen** | Titel, Autor, ISBN, Genre, Jahr |
-| 📝 **Bewertungen hinzufügen** | Formular mit Benutzername, Bewertung (1–5) und Kommentar |
-| 💬 **Bewertungen anzeigen** | Alle Bewertungen pro Buch |
-| ⚠️ **Validierung** | Fehlermeldung, wenn Kommentar leer |
-| 💡 **Flash-Meldungen** | Erfolg/Fehler nach Formularabsenden |
-| 🧠 **CDI-Konfiguration** | @Service, @Controller, @Bean, @Autowired, @SessionScope |
-| 📜 **Logging** | SLF4J + Logback (info, warn, error) |
-| 🧯 **Fehlerbehandlung** | GlobalExceptionHandler + eigene Fehlerseite |
+|  **Bücher anzeigen** | Liste aller Bücher mit Faker-generierten Daten |
+|  **Details anzeigen** | Titel, Autor, ISBN, Genre, Jahr |
+|  **Bewertungen hinzufügen** | Formular mit Benutzername, Bewertung (1–5) und Kommentar |
+|  **Bewertungen anzeigen** | Alle Bewertungen pro Buch |
+|  **Validierung** | Fehlermeldung, wenn Kommentar leer |
+|  **Flash-Meldungen** | Erfolg/Fehler nach Formularabsenden |
+|  **CDI-Konfiguration** | @Service, @Controller, @Bean, @Autowired, @SessionScope |
+|  **Logging** | SLF4J + Logback (info, warn, error) |
+|  **Fehlerbehandlung** | GlobalExceptionHandler + eigene Fehlerseite |
 
 ---
 
@@ -82,13 +81,13 @@ oder in NetBeans:
 
 | Technologie | Beschreibung |
 |--------------|--------------|
-| ☕ **Java 17** | Programmiersprache |
-| 🌱 **Spring Boot 3.5.6** | Framework für Web & DI |
-| 🧩 **Thymeleaf** | Template Engine für HTML |
-| 🧠 **CDI / Dependency Injection** | @Service, @Controller, @Bean, @Autowired |
-| 🎭 **Java Faker** | Generiert zufällige Testdaten |
-| 🪵 **SLF4J + Logback** | Logging-Framework |
-| 🧪 **Spring Boot DevTools** | Live-Reload bei Entwicklung |
+|  **Java 17** | Programmiersprache |
+|  **Spring Boot 3.5.6** | Framework für Web & DI |
+|  **Thymeleaf** | Template Engine für HTML |
+|  **CDI / Dependency Injection** | @Service, @Controller, @Bean, @Autowired |
+|  **Java Faker** | Generiert zufällige Testdaten |
+|  **SLF4J + Logback** | Logging-Framework |
+|  **Spring Boot DevTools** | Live-Reload bei Entwicklung |
 
 ---
 
@@ -155,10 +154,18 @@ Browser  ⇄  Controller  ⇄  Service  ⇄  Model
 ## 🪵 Beispiel-Logausgabe
 
 ```
-12:45:23.152 INFO  BookService - 📚 10 Bücher wurden mit Java Faker generiert.
-12:46:01.684 INFO  BookController - 🔍 Buchdetails für Buch-ID 1 werden geladen …
-12:46:17.332 WARN  BookController - ⚠️ Benutzer 'Simone' hat versucht, Bewertung ohne Kommentar für Buch-ID 1 zu speichern.
-12:46:25.911 INFO  BookController - ✅ Neue Bewertung gespeichert: Buch-ID=1, Benutzer=Simone, Bewertung=5, Kommentar='Sehr gutes Buch!'
+00:29:21.047 INFO  [i.b.controller.BookController] - 📚 Bücherliste wird geladen …
+00:29:21.244 INFO  [ibb.bookreviews.service.BookService] - 📚 10 Bücher wurden mit Java Faker generiert.
+00:29:39.832 INFO  [i.b.controller.BookController] - 🔍 Buchdetails für Buch-ID 1 werden geladen …
+00:29:56.948 INFO  [i.b.controller.BookController] - ✅ Neue Bewertung gespeichert: Buch-ID=1, Benutzer=Marlyse, Bewertung=4, Kommentar=top
+00:29:56.966 INFO  [i.b.controller.BookController] - 🔍 Buchdetails für Buch-ID 1 werden geladen …
+00:30:05.907 WARN  [i.b.controller.BookController] - ⚠️ Benutzer 'Simone' hat versucht, Bewertung ohne Kommentar für Buch-ID 1 zu speichern.
+00:30:05.914 INFO  [i.b.controller.BookController] - 🔍 Buchdetails für Buch-ID 1 werden geladen …
+00:30:13.459 INFO  [i.b.controller.BookController] - 🔍 Buchdetails für Buch-ID 16 werden geladen …
+00:30:13.464 ERROR [i.b.c.GlobalExceptionHandler] - ❌ Fehler: Buch mit ID 16 nicht gefunden.
+00:30:13.467 WARN  [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver] - Resolved [java.util.NoSuchElementException: Buch mit ID 16 nicht gefunden.]
+00:30:20.946 INFO  [i.b.controller.BookController] - 📚 Bücherliste wird geladen …
+00:30:29.753 INFO  [i.b.controller.BookController] - 🔍 Buchdetails für Buch-ID 1 werden geladen …
 ```
 
 ---
@@ -166,15 +173,15 @@ Browser  ⇄  Controller  ⇄  Service  ⇄  Model
 ## 👩‍💻 Autorin
 
 **Name:** Simone Njike  
-**Kurs:** IBB – Java Grundlagen und Spring Boot  
-**Datum:** 21. Oktober 2025  
+**Kurs:** IBB – Java Spring Boot Basics
+**Datum:** 23. Oktober 2025  
 
 ---
 
 ## 🏁 Fazit
 
-Dieses Projekt zeigt ein voll funktionsfähiges **Spring Boot Web- und MVC-System**,  
-das die wichtigsten Technologien einer modernen Java-Anwendung vereint:  
+Dieses Projekt zeigt ein voll funktionsfähiges **Spring Boot Web- und MVC-System**,  das die wichtigsten Technologien 
+einer modernen Java-Anwendung vereint:  
 - saubere Schichtenarchitektur  
 - CDI-Konfiguration  
 - Logging  
